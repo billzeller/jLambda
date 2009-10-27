@@ -27,25 +27,22 @@
         g.$ = g.init;
         
         // Add functions in array Fs
-        for(var i = 0, l = Fs.length; i < l; i++ ){
-            g.$[Fs[i]] = cb($[Fs[i]]);
+        for(var j=0; j<Fs.length;j++){
+            g.$[Fs[j]] = cb($[Fs[j]]);
         }
         
-        // Add return() functionality
-        g.return = function(s){
-                      return m(function(o){
-                          var fo = f?f(o):o;
-                          fo.r = s;
-                          return fo;
-                      });
-                   };
+        // Add return functionality
+        g.ret = function(s){
+                    return m(function(o){
+                        var fo = f?f(o):o;
+                        fo.r = s;
+                        return fo;
+                    });
+                };
                   
         return g;
     };
 
-    $.l = m();
+    window.$l = m();
 
-    if (window.$l === undefined){
-        window.$l = $.l;
-    }
 })(jQuery);
